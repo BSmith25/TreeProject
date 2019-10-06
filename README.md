@@ -39,3 +39,5 @@ To use, set up the folders and follow these steps:
 7) run TreeModelNoWarn.ipynb
 
 8) TreeModelNoWarn.ipynb
+
+9) run the flask app to display the app
