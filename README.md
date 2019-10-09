@@ -13,12 +13,19 @@ FILES:
 All Jupyter Notebook files for the models are in the ProjectFiles Directory, but many of the data files are too large to upload.  
 
 * The directory structure for data files is:
+  
   ProjectFiles
+  
     Data
+   
       311
+      
       FinalOutputs
+      
       ModelData
+      
       spatialdatasets
+      
       Trees
       
 To use, set up the folders and follow these steps:
