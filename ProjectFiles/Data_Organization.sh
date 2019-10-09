@@ -1,4 +1,3 @@
-For tree Falls
 grep Unique 311_Service_Requests_from_2010_to_Present.csv > temp
 grep Fallen 311_Service_Requests_from_2010_to_Present.csv >> temp
 sed -i '/DSNY/d' temp
@@ -12,7 +11,6 @@ sed -i '/Entire/d' temp
 sed -i '/Park/d' temp
 cut -d"," -f 1-4,6-15,20,26-28,39-40 temp > Tree_Fall_311.csv
 
-tree Damage
 grep Unique 311_Service_Requests_from_2010_to_Present.csv > temp
 grep Dead 311_Service_Requests_from_2010_to_Present.csv >> temp
 grep Damaged 311_Service_Requests_from_2010_to_Present.csv >> temp
@@ -31,7 +29,6 @@ sed -i '/Animal/d' temp
 sed -i '/Park/d' temp
 cut -d"," -f 1-4,6-15,20,26-28,39-40 temp > Tree_Damage_311.csv
 
-tree Overhang
 grep Unique 311_Service_Requests_from_2010_to_Present.csv > temp
 grep Overgrown 311_Service_Requests_from_2010_to_Present.csv >> temp
 sed -i '/DSNY/d' temp
