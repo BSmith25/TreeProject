@@ -14,9 +14,9 @@ All Jupyter Notebook files for the models are in the ProjectFiles Directory, but
 
 * The directory structure for data files is:
   
-  ProjectFiles
+  ProjectFiles/
   
-    Data
+    Data/
    
       311
       
