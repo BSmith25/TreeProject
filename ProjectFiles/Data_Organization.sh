@@ -29,13 +29,13 @@ wget https://nycopendata.socrata.com/api/views/erm2-nwe9/rows.csv?accessType=DOW
 
 	# Get all damaged trees/branches service requests and drop un-needed columns
 	# Note we will need to grep a bunch of columns based on several keywords and then use other keywords (mostly agency names) to remove un-wanted data
-	grep Unique 311_Service_Requests_from_2010_to_Present.csv > temp
-	grep Dead 311_Service_Requests_from_2010_to_Present.csv >> temp
-	grep Damaged 311_Service_Requests_from_2010_to_Present.csv >> temp
-	grep Leaning/Uprooted 311_Service_Requests_from_2010_to_Present.csv >> temp
-	grep Cracked 311_Service_Requests_from_2010_to_Present.csv >> temp
-	grep Poor 311_Service_Requests_from_2010_to_Present.csv >> temp
-	grep Split 311_Service_Requests_from_2010_to_Present.csv >> temp
+	grep Unique Data/311/311_Service_Requests_from_2010_to_Present.csv > temp
+	grep Dead Data/311/311_Service_Requests_from_2010_to_Present.csv >> temp
+	grep Damaged Data/311/311_Service_Requests_from_2010_to_Present.csv >> temp
+	grep Leaning/Uprooted Data/311/311_Service_Requests_from_2010_to_Present.csv >> temp
+	grep Cracked Data/311/311_Service_Requests_from_2010_to_Present.csv >> temp
+	grep Poor Data/311/311_Service_Requests_from_2010_to_Present.csv >> temp
+	grep Split Data/311/311_Service_Requests_from_2010_to_Present.csv >> temp
 	sed -i '/DSNY/d' temp
 	sed -i '/DCA/d' temp
 	sed -i '/DEP/d' temp
@@ -47,8 +47,8 @@ wget https://nycopendata.socrata.com/api/views/erm2-nwe9/rows.csv?accessType=DOW
 	cut -d"," -f 1-4,6-15,20,26-28,39-40 temp > Data/311/Tree_Service_Requests_311.csv
 
 	# Get all overhanging trees/branches service requests and drop un-needed columns
-	grep Unique 311_Service_Requests_from_2010_to_Present.csv > temp
-	grep Overgrown 311_Service_Requests_from_2010_to_Present.csv >> temp
+	grep Data/311/Unique 311_Service_Requests_from_2010_to_Present.csv > temp
+	grep Data/311/Overgrown 311_Service_Requests_from_2010_to_Present.csv >> temp
 	sed -i '/DSNY/d' temp
 	sed -i '/DCA/d' temp
 	sed -i '/DEP/d' temp
