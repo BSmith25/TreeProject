@@ -1,4 +1,4 @@
-### Simple Flask Template
+### TreeFall NYC App
 
 This is a Flask app built off the [standard bootstrap template](https://getbootstrap.com/docs/3.3/) that includes additional examples of how to link to subpages, tables, and model returns. 
 

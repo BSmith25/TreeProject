@@ -31,21 +31,16 @@ All Jupyter Notebook files for the models are in the ProjectFiles Directory, but
 ### To Run
 set up the folders and follow these steps:
 
-1) Download the 311 Service request data from NYC Open Data: https://nycopendata.socrata.com/Social-Services/311-Service-Requests-from-
-2010-to-Present/erm2-nwe9 
+1) In a unix environment (I use Cygwin for Windows) run "sh Organize_Data.sh" to create the data file structure, download all data, and unzip/rename files as necessary
 
-2) Follow the steps in ShellCommands.txt to organize the 311 data into falls and warnings files and store in Data/311
+2) Run DataJoin.ipynb to join branch fall service requests with tree census data
 
-3) Download the 2015 NYC Street Tree Census as a shapefile: https://data.cityofnewyork.us/Environment/2015-Street-Tree-Census-Tree-Data/pi5s-9p35 and store in Data/Trees
+3) Run CleanData.ipynb to join damage and overhanging trees service requests with tree census data  then clean the data up for modeling
 
-4) Run DataJoin.ipynb
+4) Run TreeModelNoWarn.ipynb to create a random forest model to predict the probability of a tree branch fall without using damage and overhanging tree service requst data then predict tree branch falls and store output
 
-5) Run CleanData.ipynb
+8) Run TreeModelNoWarn.ipynb to create a random forest model to predict the probability of a tree branch fall using damage and overhanging tree service requests in the features.  Then combine the two model outputs weighted by the service requests per fall in the zipcode.  Output the results to a csv and to a SQL database for the app to connect to.
+   ** Note you will need to provide PostgreSQL login info
 
-6) place the two zipped files (data_with_imp_bldghght.zip and Fall_Count.zip) in Data/spatialdatasets and unzip them, remove "_for_github" from the name of data_with_imp_bldghght.  These files were created with NYC and USGS open datasets in QGIS.
-
-7) run TreeModelNoWarn.ipynb
-
-8) TreeModelNoWarn.ipynb
-
-9) run the flask app to display the app
+9) Run the flask app to display the app (see directions in App/README.txt)
+   ** Currently the zipcode and tree data layers in google maps are static and will not update based on model outputs
