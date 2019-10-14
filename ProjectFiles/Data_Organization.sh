@@ -1,6 +1,6 @@
 #!/bin/bash
 # This script downloads and organizes all the data files needed for TreeFall NYC
-# Note that wget is needed
+# Note that wget and unzip are needed
 
 # First create the data directories:
 mkdir Data;
@@ -64,15 +64,15 @@ wget https://nycopendata.socrata.com/api/views/erm2-nwe9/rows.csv?accessType=DOW
 
 # Next, work on the tree census data
 	# Downlaod the data from NYC Open Data and put it in the Data/Trees folder
-	wget https://data.cityofnewyork.us/api/geospatial/pi5s-9p35?method=export&format=Shapefile -O temp.zip && unzip temp.zip -d /Data/Trees/ &&	rm temp.zip
+	wget https://data.cityofnewyork.us/api/geospatial/pi5s-9p35?method=export&format=Shapefile && unzip '2015 Street Tree Census - Tree Data' -d Data/Trees/ &&	rm '2015 Street Tree Census - Tree Data'
 	
 # Finally, download the spatial datasets from github to Data/spatialdatasets and unzip them or rename them as needed
 # Note these datasets were generated from open data and merged in QGIS
 	# First the building height and impervious % dataset
-	wget https://github.com/BSmith25/TreeProject/blob/master/ProjectFiles/data_with_imp_bldghght.zip -O temp.zip && unzip temp.zip -d /Data/spatialdatasets/ &&	rm temp.zip
-	mv  /Data/spatialdatasets/data_with_imp_bldghght_for_github.csv /Data/spatialdatasets/data_with_imp_bldghght.csv
+	wget https://github.com/BSmith25/TreeProject/raw/master/ProjectFiles/data_with_imp_bldghght.zip  && unzip data_with_imp_bldghght.zip -d Data/spatialdatasets/ &&	rm data_with_imp_bldghght.zip
+	mv  Data/spatialdatasets/data_with_imp_bldghght_for_github.csv Data/spatialdatasets/data_with_imp_bldghght.csv
 
 	# Next the service requests per fall in all the zipcodes
-	wget https://github.com/BSmith25/TreeProject/blob/master/ProjectFiles/Fall_Count.zip -O temp.zip && unzip temp.zip -d /Data/spatialdatasets/ &&	rm temp.zip
+	wget https://github.com/BSmith25/TreeProject/raw/master/ProjectFiles/Fall_Count.zip && unzip Fall_Count.zip -d Data/spatialdatasets/ &&	rm Fall_Count.zip
 
 	
