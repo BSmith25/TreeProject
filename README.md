@@ -33,14 +33,14 @@ set up the folders and follow these steps:
 
 1) In a unix environment (I use Cygwin for Windows) run "sh Organize_Data.sh" to create the data file structure, download all data, and unzip/rename files as necessary
 
-2) Run DataJoin.ipynb to join branch fall service requests with tree census data
+2) Run DataJoin.ipynb to join branch fall service requests with tree census data then clean the data up for modeling
 
-3) Run CleanData.ipynb to join damage and overhanging trees service requests with tree census data  then clean the data up for modeling
+3) Run TreeModel_no_service_requests.ipynb to create a random forest model to predict the probability of a tree branch fall without using damage and overhanging tree service requst data then predict tree branch falls and store output
 
-4) Run TreeModelNoWarn.ipynb to create a random forest model to predict the probability of a tree branch fall without using damage and overhanging tree service requst data then predict tree branch falls and store output
+4) Run TreeModel_with_service_requests.ipynb to create a random forest model to predict the probability of a tree branch fall using damage and overhanging tree service requests in the features.  T
 
-8) Run TreeModelNoWarn.ipynb to create a random forest model to predict the probability of a tree branch fall using damage and overhanging tree service requests in the features.  Then combine the two model outputs weighted by the service requests per fall in the zipcode.  Output the results to a csv and to a SQL database for the app to connect to.
+5) Run ModelMerge.ipynb to combine the two model outputs weighted by the service requests per fall in the zipcode.  Output the results to a csv and to a SQL database for the app to connect to.
    ** Note you will need to provide PostgreSQL login info
 
-9) Run the flask app to display the app (see directions in App/README.txt)
+6) Run the flask app to display the app (see directions in App/README.txt)
    ** Currently the zipcode and tree data layers in google maps are static and will not update based on model outputs
